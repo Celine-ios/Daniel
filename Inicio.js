@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { View,Text } from 'react-native';
-export default class FlexDimensionsBasics extends Component {
+
+    export default class FlexDimensionsBasics extends Component {
+
   render() {
+
     return (
-      // Try removing the `flex: 1` on the parent View.
-      // The parent will not have dimensions, so the children can't expand.
-      // What if you add `height: 300` instead of `flex: 1`?
-      
-        
-        <View style={{backgroundColor: 'grey',width: '100%',height: '16%'}} >
+
+           
+
+        <View style={{backgroundColor: '#fff', width: '100%', height: '100%'}}>  
+
+          <View style={{backgroundColor: 'grey',width: '100%',height: '16%'}} >
         
         <Text style={{color: '#fff',fontSize: 20, marginTop: '16%',marginLeft: '4%'}}>
         P.
@@ -22,7 +25,7 @@ export default class FlexDimensionsBasics extends Component {
             marginLeft: '14%'
             
             }}>
-               Inicio
+              |  Inicio
             </Text>
            
         </View>
@@ -30,17 +33,37 @@ export default class FlexDimensionsBasics extends Component {
          <Text style={{
               
               position: 'absolute',
-              color: 'black',
-              marginTop: '20%',
-              marginLeft: '25%'
+              color: 'grey',
+              marginTop: '40%',
+              marginLeft: '27%',
+              
               
               
             }}>Ver todas las Unidades</Text>
-        
+            
+            <Text style={{
+              position: 'absolute',
+              marginLeft: '15%',
+              marginTop: '55%'
+            }}>UNIDAD</Text>
+            
+            <Text style={{
+              position: 'absolute',
+              marginLeft: '15%',
+              marginTop: '65%',
+              color: 'grey'
+            }}>SALUDOS EN INGLÉS</Text>
+            
+            </View>
+            
       
     );
   }
 }
+
+
+
+
 
 
 
