@@ -31,23 +31,32 @@ class Inputs extends Component {
             fontSize: 20,
             position: 'absolute',
             marginTop: '15%',
-            marginLeft: '5%'
+            marginLeft: '5%',
           }}>
           Prestige
         </Text>
-        <Text 
+        <Text
           style={{
-            
             position: 'absolute',
-            color: 'grey',
+            color: 'black',
             fontWeight: 'bolder',
-            fontSize: 10,
-            marginTop: '22%',
-            marginLeft: '5%'
-            
-          }}>Lorem ipsum dolorum et amen let strip a menus quix vous les
-          clark</Text>
+            fontSize: 15,
+            marginTop: '25%',
+            marginLeft: '5%',
+          }}>
+          Lorem ipsum dolorum et amen let strip a menus quix vous les
+          clark
+        </Text>
         <View style={{ position: 'absolute', width: '100%', marginTop: '35%' }}>
+          <Text
+            style={{
+              color: 'grey',
+              fontWeight: 'bolder',
+              fontSize: '15',
+              paddingLeft: '6%'
+            }}>
+            CORREO ELECTRÓNICO
+          </Text>
           <TextInput
             style={styles.input}
             underlineColorAndroid="transparent"
@@ -56,7 +65,15 @@ class Inputs extends Component {
             autoCapitalize="none"
             onChangeText={this.handleEmail}
           />
-
+          <Text
+            style={{
+              color: 'black',
+              fontWeight: 'bolder',
+              fontSize: '15',
+              paddingLeft: '6%'
+            }}>
+            CONTRASEÑA
+          </Text>
           <TextInput
             style={styles.input}
             underlineColorAndroid="transparent"
@@ -72,14 +89,22 @@ class Inputs extends Component {
             <Text style={styles.submitButtonText}> Iniciar Sesión </Text>
           </TouchableOpacity>
         </View>
-        <Text style={{
-
-          color: grey,
-          fontWeight: 'bolder',
-          marginTop: '4%'
-
-        }}>Clases de Inglés</Text>
-        
+        <Text
+          style={{
+            color: 'grey',
+            fontWeight: 'bolder',
+            marginTop: '4%',
+          }}>
+          Clases de Inglés
+        </Text>
+        <Text
+          style={{
+            color: 'grey',
+            fontSize: 10,
+          }}>
+          Lorem ipsum dellorum etra basque mortiver e pas dan chess
+          Text tedr ssachs ds  dsd sds
+        </Text>
       </View>
     );
   }
@@ -95,113 +120,17 @@ const styles = StyleSheet.create({
     height: 40,
     borderColor: 'grey',
     borderWidth: 1,
+    
   },
   submitButton: {
-    backgroundColor: '#3C33FF',
-    padding: '5% 10% 5% 10%',
-    marginLeft: 15,
+    backgroundColor: '#6A72F2',
+    margin: 30,
+    padding: '3% 2% 2% 3%',
     height: 40,
-    width: '40%'
+    width: '40%',
+    borderRadius: '2%',
   },
   submitButtonText: {
     color: 'white',
   },
 });
-
-//Other
-
-/*import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  TextInput,
-  StyleSheet,
-} from 'react-native';
-
-class Inputs extends Component {
-  state = {
-    email: '',
-    password: '',
-  };
-  handleEmail = text => {
-    this.setState({ email: text });
-  };
-  handlePassword = text => {
-    this.setState({ password: text });
-  };
-  login = (email, pass) => {
-    alert('email: ' + email + ' password: ' + pass);
-  };
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text
-          style={{
-            color: 'grey',
-            fontWeight: 'bolder',
-            fontSize: 20,
-            position: 'absolute',
-            marginTop: '15%',
-            marginLeft: '5%'
-          }}>
-          Prestige
-        </Text>
-        <Text 
-          style={{
-            
-            position: 'absolute',
-            
-          }}></Text>
-        <View style={{ position: 'absolute', width: '100%', marginTop: '35%' }}>
-          <TextInput
-            style={styles.input}
-            underlineColorAndroid="transparent"
-            placeholder="Email"
-            placeholderTextColor="#9a73ef"
-            autoCapitalize="none"
-            onChangeText={this.handleEmail}
-          />
-
-          <TextInput
-            style={styles.input}
-            underlineColorAndroid="transparent"
-            placeholder="Password"
-            placeholderTextColor="#9a73ef"
-            autoCapitalize="none"
-            onChangeText={this.handlePassword}
-          />
-
-          <TouchableOpacity
-            style={styles.submitButton}
-            onPress={() => this.login(this.state.email, this.state.password)}>
-            <Text style={styles.submitButtonText}> Iniciar Sesión </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    );
-  }
-}
-export default Inputs;
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 23,
-  },
-  input: {
-    margin: 25,
-    height: 40,
-    borderColor: '#7a42f4',
-    borderWidth: 1,
-  },
-  submitButton: {
-    backgroundColor: '#7133FF',
-    padding: '5% 10% 5% 10%',
-    marginLeft: 15,
-    height: 40,
-    width: '40%'
-  },
-  submitButtonText: {
-    color: 'white',
-  },
-});*/
