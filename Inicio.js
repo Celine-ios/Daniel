@@ -125,9 +125,13 @@ class Inicio extends Component {
                 <View style={styles.block}>
                  <Text style={{margin: 2, paddingLeft: 8}}> |</Text>
                   </View>
+                  <View>
+                  <Text style={styles.unidad}>UNIDAD 1</Text>
                 <Text style={styles.mainblock}>Saludos en Inglés</Text>
+                </View>
               </View>
             </View>
+            <View style={{color: 'grey',fontSize: 6, margin: 8}}>75% Completada</View>
             </View>
         </View>
 
@@ -180,6 +184,20 @@ const styles = StyleSheet.create({
       margin: 4,
       fontSize: 6,
       color: 'grey'
+
+    },
+
+    unidad: {
+
+      fontSize: 6,
+      margin: 1,
+      marginLeft: 5
+
+    },
+
+    avance: {
+
+      margin: 2
 
     }
 
