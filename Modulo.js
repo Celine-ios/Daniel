@@ -8,7 +8,8 @@ import { View,Text,StyleSheet } from 'react-native';
     return (
 
            
-
+         
+  
         <View style={{backgroundColor: '#EDEDED', width: '100%', height: '100%'}}>  
 
           <View style={{backgroundColor: '#2E4053',width: '100%',height: '16%'}} >
@@ -61,6 +62,12 @@ const styles = StyleSheet.create({
       color: 'grey',
       fontSize: 10
       
+    }
+
+    contentContainer: {
+
+      paddingVertical: 20
+
     }
 
 });

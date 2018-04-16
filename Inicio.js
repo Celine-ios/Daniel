@@ -4,7 +4,8 @@ import {
   View,
  Text,
  StyleSheet,
-  Image
+  Image,
+  ScrollView
 
  } from 'react-native';
 
@@ -15,10 +16,12 @@ class Inicio extends Component {
 
        return(
 
+        <ScrollView contentContainerStyle={styles.contentContainer} bounces='true' bouncesZoom='true' alwaysBounceVertical='true' style={styles.ScrollView} overflow='visible'>
+
           <View style={{backgroundColor: '#EDEDED', width: '100%', height: '100%'}}>
            <View style={{backgroundColor: '#2E4053',width: '100%',height: '16%'}} >
         
-        <Text style={{color: '#fff',fontSize: 20, marginTop: '12%',marginLeft: '5%'}}>
+        <Text style={{color: '#fff',fontSize: 20, marginTop: '12%',marginLeft: '5%',marginBottom: 10}}>
         p.
         </Text>
         
@@ -101,7 +104,9 @@ class Inicio extends Component {
             <Text style={{
 
               fontSize: 8,
-              margin: 5,
+              marginLeft: 10,
+              marginTop: 8,
+              marginBottom: 6,
               color: '#1C2833'
             }}>PASO A PASO</Text>
             <View style={{
@@ -110,7 +115,8 @@ class Inicio extends Component {
               backgroundColor: '#fff',
               display: 'flex',
               flexDirection: 'row',
-              fontSize: 10
+              fontSize: 10,
+              marginLeft: 6
 
             }}>
               <Text style={styles.option}>PENDIENTE</Text>
@@ -135,9 +141,23 @@ class Inicio extends Component {
               </View>
             </View>
             <View style={{color: 'grey',fontSize: 6, margin: 8}}>75% Completada</View>
+          <View style={{width: '80%',margin: 16,borderColor: '#EDEDED',borderWidth: 1,borderRadius: '3%'}}>
+            <Text style={{color: 'grey',fontSize: 8,margin: 8,marginLeft: 20}}>Ver todas las Unidades</Text>
+          </View>
             </View>
+        <View style={{width: '90%',marginLeft: 8,marginBottom: 12,borderRadius: '3%',backgroundColor: '#fff', marginTop: 6}}>
+          <Text style={{fontSize: 10,margin:10,color: 'grey'}}>UNIDAD 1</Text>
+          <Text style={{fontSize: 8,margin: 10}}>SALUDOS EN INGLÉS</Text>
+          <View>
+          <Text style={styles.options}>Hola</Text>
+          <Text style={styles.options}>Cómo estás?</Text>
+          <Text style={styles.options}>Adiós</Text>
+          <Text style={styles.options}>Chao</Text>
+          </View>
         </View>
 
+        </View>
+  </ScrollView>    
          
          
          );
@@ -149,14 +169,20 @@ export default Inicio;
 
 const styles = StyleSheet.create({
 
-    option: {
+   options: {
+
+      margin: 10,
+      color: 'grey',
+      fontSize: 10
+      
+    }, option: {
 
       margin: 4,
       fontSize: 5,
       color: 'grey'
       
     },
-
+    
     select: {
 
       margin: 4,
@@ -201,6 +227,18 @@ const styles = StyleSheet.create({
     avance: {
 
       margin: 2
+
+    },
+
+    contentContainer : {
+
+      paddingVertical: 0
+
+    },
+
+    ScrollView: {
+
+      flex: 1
 
     }
 
