@@ -3,7 +3,8 @@ import {
 
   View,
  Text,
- StyleSheet
+ StyleSheet,
+  Image
 
  } from 'react-native';
 
@@ -14,19 +15,20 @@ class Inicio extends Component {
 
        return(
 
-          <View style={{backgroundColor: '#A9A6AB', width: '100%', height: '100%'}}>
+          <View style={{backgroundColor: '#EDEDED', width: '100%', height: '100%'}}>
            <View style={{backgroundColor: '#2E4053',width: '100%',height: '16%'}} >
         
-        <Text style={{color: '#fff',fontSize: 20, marginTop: '16%',marginLeft: '4%'}}>
-        P.
+        <Text style={{color: '#fff',fontSize: 20, marginTop: '12%',marginLeft: '5%'}}>
+        p.
         </Text>
         
         <Text style={{
           
             position: 'absolute',
             color: '#5D6D7E',
-            marginTop: '17.5%',
-            marginLeft: '14%'
+            marginTop: '15.5%',
+            marginLeft: '18%',
+            fontSize: 13
             
             }}>
               |  Inicio
@@ -39,8 +41,7 @@ class Inicio extends Component {
           backgroundColor: '#fff',
           width: '90%',
           marginLeft: '5%',
-          border: '1px solid grey',
-          borderRadius: '2%',
+          borderRadius: '3%',
           marginTop: '4%'
                
         }}>
@@ -59,15 +60,18 @@ class Inicio extends Component {
           <View style={{
 
           }}>
+          <Image source={{uri: 'https://facebook.github.io/react/logo-og.png'}}
+       style={{width: 20, height: 20,marginLeft: 8,marginTop: 2,marginBottom: 2, borderRadius: 20}} />
+
           <Text style={{
 
             color: '#8732C5',
-            padding: 4,
-            fontSize: '10',
+            margin: 10,
+            fontSize: '9',
             fontWeight: 'bolder'
                 
           }}>
-            Anamileth Barreto te está esperando para una clase de Ver to be
+            Anamileth Barreto te está esperando para una clase de Verb to be
           </Text>
           <Text style={{
 
@@ -84,8 +88,7 @@ class Inicio extends Component {
           backgroundColor: '#fff',
           width: '90%',
           marginLeft: '5%',
-          border: '1px solid grey',
-          borderRadius: '2%',
+          borderRadius: '3%',
           marginTop: '4%'
 
         }}>
@@ -175,7 +178,7 @@ const styles = StyleSheet.create({
       width: '15%',
       height: '80%',
       backgroundColor: 'grey',
-      margin: 1
+      margin: 2
 
     },
 

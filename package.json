@@ -1,26 +1,31 @@
 {
-  "name": "daniel",
-  "version": "0.1.0",
-  "private": true,
-  "devDependencies": {
-    "react-native-scripts": "1.13.1",
-    "jest-expo": "26.0.0",
-    "react-test-renderer": "16.3.0-alpha.1"
-  },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "name": "react-native-calendars",
+  "version": "1.18.2",
+  "main": "src/index.js",
+  "description": "React Native Calendar Components",
   "scripts": {
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
-    "test": "jest"
+    "test": "jasmine src/*.spec.js && npm run lint",
+    "lint": "eslint src/ example/src"
   },
-  "jest": {
-    "preset": "jest-expo"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wix/react-native-calendars"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "author": "Wix.com",
+  "license": "MIT",
   "dependencies": {
-    "expo": "^26.0.0",
-    "react": "16.3.0-alpha.1",
-    "react-native": "0.54.0"
+    "prop-types": "^15.5.10",
+    "xdate": "^0.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "babel-eslint": "^7.2.3",
+    "eslint-plugin-react": "^7.0.0",
+    "jasmine": "^2.5.2",
+    "react": "16.0.0-alpha.12",
+    "react-native": "0.47.2"
   }
 }

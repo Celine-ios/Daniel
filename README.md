@@ -1,220 +1,437 @@
-This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
+# React Native Calendars ✨ 🗓️ 📆
 
-Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
+[![Version](https://img.shields.io/npm/v/react-native-calendars.svg)](https://www.npmjs.com/package/react-native-calendars)
+[![Build Status](https://travis-ci.org/wix/react-native-calendars.svg?branch=master)](https://travis-ci.org/wix/react-native-calendars)
 
-## Table of Contents
+This module includes various customizable react native calendar components.
 
-* [Updating to New Releases](#updating-to-new-releases)
-* [Available Scripts](#available-scripts)
-  * [npm start](#npm-start)
-  * [npm test](#npm-test)
-  * [npm run ios](#npm-run-ios)
-  * [npm run android](#npm-run-android)
-  * [npm run eject](#npm-run-eject)
-* [Writing and Running Tests](#writing-and-running-tests)
-* [Environment Variables](#environment-variables)
-  * [Configuring Packager IP Address](#configuring-packager-ip-address)
-* [Adding Flow](#adding-flow)
-* [Customizing App Display Name and Icon](#customizing-app-display-name-and-icon)
-* [Sharing and Deployment](#sharing-and-deployment)
-  * [Publishing to Expo's React Native Community](#publishing-to-expos-react-native-community)
-  * [Building an Expo "standalone" app](#building-an-expo-standalone-app)
-  * [Ejecting from Create React Native App](#ejecting-from-create-react-native-app)
-    * [Build Dependencies (Xcode & Android Studio)](#build-dependencies-xcode-android-studio)
-    * [Should I Use ExpoKit?](#should-i-use-expokit)
-* [Troubleshooting](#troubleshooting)
-  * [Networking](#networking)
-  * [iOS Simulator won't open](#ios-simulator-wont-open)
-  * [QR Code does not scan](#qr-code-does-not-scan)
+The package is both **Android** and **iOS** compatible.
 
-## Updating to New Releases
+## Try it out
 
-You should only need to update the global installation of `create-react-native-app` very rarely, ideally never.
-
-Updating the `react-native-scripts` dependency of your app should be as simple as bumping the version number in `package.json` and reinstalling your project's dependencies.
-
-Upgrading to a new version of React Native requires updating the `react-native`, `react`, and `expo` package versions, and setting the correct `sdkVersion` in `app.json`. See the [versioning guide](https://github.com/react-community/create-react-native-app/blob/master/VERSIONS.md) for up-to-date information about package version compatibility.
-
-## Available Scripts
-
-If Yarn was installed when the project was initialized, then dependencies will have been installed via Yarn, and you should probably use it to run these commands as well. Unlike dependency installation, command running syntax is identical for Yarn and NPM at the time of this writing.
-
-### `npm start`
-
-Runs your app in development mode.
-
-Open it in the [Expo app](https://expo.io) on your phone to view it. It will reload if you save edits to your files, and you will see build errors and logs in the terminal.
-
-Sometimes you may need to reset or clear the React Native packager's cache. To do so, you can pass the `--reset-cache` flag to the start script:
+You can run example module by performing these steps:
 
 ```
-npm start --reset-cache
-# or
-yarn start --reset-cache
+$ git clone git@github.com:wix/react-native-calendars.git
+$ cd react-native-calendars/example
+$ npm install
+$ react-native run-ios
 ```
 
-#### `npm test`
+You can check example screens source code in [example module screens](https://github.com/wix-private/wix-react-native-calendar/tree/master/example/src/screens)
 
-Runs the [jest](https://github.com/facebook/jest) test runner on your tests.
+This project is compatible with Expo/CRNA (without ejecting), and the examples have been [published on Expo](https://expo.io/@community/react-native-calendars-example)
 
-#### `npm run ios`
-
-Like `npm start`, but also attempts to open your app in the iOS Simulator if you're on a Mac and have it installed.
-
-#### `npm run android`
-
-Like `npm start`, but also attempts to open your app on a connected Android device or emulator. Requires an installation of Android build tools (see [React Native docs](https://facebook.github.io/react-native/docs/getting-started.html) for detailed setup). We also recommend installing Genymotion as your Android emulator. Once you've finished setting up the native build environment, there are two options for making the right copy of `adb` available to Create React Native App:
-
-##### Using Android Studio's `adb`
-
-1. Make sure that you can run adb from your terminal.
-2. Open Genymotion and navigate to `Settings -> ADB`. Select “Use custom Android SDK tools” and update with your [Android SDK directory](https://stackoverflow.com/questions/25176594/android-sdk-location).
-
-##### Using Genymotion's `adb`
-
-1. Find Genymotion’s copy of adb. On macOS for example, this is normally `/Applications/Genymotion.app/Contents/MacOS/tools/`.
-2. Add the Genymotion tools directory to your path (instructions for [Mac](http://osxdaily.com/2014/08/14/add-new-path-to-path-command-line/), [Linux](http://www.computerhope.com/issues/ch001647.htm), and [Windows](https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/)).
-3. Make sure that you can run adb from your terminal.
-
-#### `npm run eject`
-
-This will start the process of "ejecting" from Create React Native App's build scripts. You'll be asked a couple of questions about how you'd like to build your project.
-
-**Warning:** Running eject is a permanent action (aside from whatever version control system you use). An ejected app will require you to have an [Xcode and/or Android Studio environment](https://facebook.github.io/react-native/docs/getting-started.html) set up.
-
-## Customizing App Display Name and Icon
-
-You can edit `app.json` to include [configuration keys](https://docs.expo.io/versions/latest/guides/configuration.html) under the `expo` key.
-
-To change your app's display name, set the `expo.name` key in `app.json` to an appropriate string.
-
-To set an app icon, set the `expo.icon` key in `app.json` to be either a local path or a URL. It's recommended that you use a 512x512 png file with transparency.
-
-## Writing and Running Tests
-
-This project is set up to use [jest](https://facebook.github.io/jest/) for tests. You can configure whatever testing strategy you like, but jest works out of the box. Create test files in directories called `__tests__` or with the `.test` extension to have the files loaded by jest. See the [the template project](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/App.test.js) for an example test. The [jest documentation](https://facebook.github.io/jest/docs/en/getting-started.html) is also a wonderful resource, as is the [React Native testing tutorial](https://facebook.github.io/jest/docs/en/tutorial-react-native.html).
-
-## Environment Variables
-
-You can configure some of Create React Native App's behavior using environment variables.
-
-### Configuring Packager IP Address
-
-When starting your project, you'll see something like this for your project URL:
+## Installation
 
 ```
-exp://192.168.0.2:19000
+$ npm install --save react-native-calendars
 ```
 
-The "manifest" at that URL tells the Expo app how to retrieve and load your app's JavaScript bundle, so even if you load it in the app via a URL like `exp://localhost:19000`, the Expo client app will still try to retrieve your app at the IP address that the start script provides.
+The solution is implemented in JavaScript so no native module linking is required.
 
-In some cases, this is less than ideal. This might be the case if you need to run your project inside of a virtual machine and you have to access the packager via a different IP address than the one which prints by default. In order to override the IP address or hostname that is detected by Create React Native App, you can specify your own hostname via the `REACT_NATIVE_PACKAGER_HOSTNAME` environment variable:
+## Usage
 
-Mac and Linux:
+`import {` [Calendar](#calendar), [CalendarList](#calendarlist), [Agenda](#agenda) `} from 'react-native-calendars';`
 
-```
-REACT_NATIVE_PACKAGER_HOSTNAME='my-custom-ip-address-or-hostname' npm start
-```
+All parameters for components are optional. By default the month of current local date will be displayed.
 
-Windows:
-```
-set REACT_NATIVE_PACKAGER_HOSTNAME='my-custom-ip-address-or-hostname'
-npm start
-```
+Event handler callbacks are called with `calendar objects` like this:
 
-The above example would cause the development server to listen on `exp://my-custom-ip-address-or-hostname:19000`.
-
-## Adding Flow
-
-Flow is a static type checker that helps you write code with fewer bugs. Check out this [introduction to using static types in JavaScript](https://medium.com/@preethikasireddy/why-use-static-types-in-javascript-part-1-8382da1e0adb) if you are new to this concept.
-
-React Native works with [Flow](http://flowtype.org/) out of the box, as long as your Flow version matches the one used in the version of React Native.
-
-To add a local dependency to the correct Flow version to a Create React Native App project, follow these steps:
-
-1. Find the Flow `[version]` at the bottom of the included [.flowconfig](.flowconfig)
-2. Run `npm install --save-dev flow-bin@x.y.z` (or `yarn add --dev flow-bin@x.y.z`), where `x.y.z` is the .flowconfig version number.
-3. Add `"flow": "flow"` to the `scripts` section of your `package.json`.
-4. Add `// @flow` to any files you want to type check (for example, to `App.js`).
-
-Now you can run `npm run flow` (or `yarn flow`) to check the files for type errors.
-You can optionally use a [plugin for your IDE or editor](https://flow.org/en/docs/editors/) for a better integrated experience.
-
-To learn more about Flow, check out [its documentation](https://flow.org/).
-
-## Sharing and Deployment
-
-Create React Native App does a lot of work to make app setup and development simple and straightforward, but it's very difficult to do the same for deploying to Apple's App Store or Google's Play Store without relying on a hosted service.
-
-### Publishing to Expo's React Native Community
-
-Expo provides free hosting for the JS-only apps created by CRNA, allowing you to share your app through the Expo client app. This requires registration for an Expo account.
-
-Install the `exp` command-line tool, and run the publish command:
-
-```
-$ npm i -g exp
-$ exp publish
+```javasctipt
+{
+  day: 1,     // day of month (1-31)
+  month: 1,   // month of year (1-12)
+  year: 2017, // year
+  timestamp,   // UTC timestamp representing 00:00 AM of this date
+  dateString: '2016-05-13' // date formatted as 'YYYY-MM-DD' string
+}
 ```
 
-### Building an Expo "standalone" app
+Parameters that require date types accept YYYY-MM-DD formated datestrings, JavaScript date objects, `calendar objects` and UTC timestamps.
 
-You can also use a service like [Expo's standalone builds](https://docs.expo.io/versions/latest/guides/building-standalone-apps.html) if you want to get an IPA/APK for distribution without having to build the native code yourself.
+Calendars can be localized by adding custom locales to `LocaleConfig` object:
 
-### Ejecting from Create React Native App
+```javascript
+import {LocaleConfig} from 'react-native-calendars';
 
-If you want to build and deploy your app yourself, you'll need to eject from CRNA and use Xcode and Android Studio.
+LocaleConfig.locales['fr'] = {
+  monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+  monthNamesShort: ['Janv.','Févr.','Mars','Avril','Mai','Juin','Juil.','Août','Sept.','Oct.','Nov.','Déc.'],
+  dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+  dayNamesShort: ['Dim.','Lun.','Mar.','Mer.','Jeu.','Ven.','Sam.']
+};
 
-This is usually as simple as running `npm run eject` in your project, which will walk you through the process. Make sure to install `react-native-cli` and follow the [native code getting started guide for React Native](https://facebook.github.io/react-native/docs/getting-started.html).
-
-#### Should I Use ExpoKit?
-
-If you have made use of Expo APIs while working on your project, then those API calls will stop working if you eject to a regular React Native project. If you want to continue using those APIs, you can eject to "React Native + ExpoKit" which will still allow you to build your own native code and continue using the Expo APIs. See the [ejecting guide](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md) for more details about this option.
-
-## Troubleshooting
-
-### Networking
-
-If you're unable to load your app on your phone due to a network timeout or a refused connection, a good first step is to verify that your phone and computer are on the same network and that they can reach each other. Create React Native App needs access to ports 19000 and 19001 so ensure that your network and firewall settings allow access from your device to your computer on both of these ports.
-
-Try opening a web browser on your phone and opening the URL that the packager script prints, replacing `exp://` with `http://`. So, for example, if underneath the QR code in your terminal you see:
-
-```
-exp://192.168.0.1:19000
+LocaleConfig.defaultLocale = 'fr';
 ```
 
-Try opening Safari or Chrome on your phone and loading
+### Calendar
 
+<kbd>
+  <img src="https://github.com/wix-private/wix-react-native-calendar/blob/master/demo/calendar.gif?raw=true">
+</kbd>
+
+#### Basic parameters
+
+```javascript
+<Calendar
+  // Initially visible month. Default = Date()
+  current={'2012-03-01'}
+  // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
+  minDate={'2012-05-10'}
+  // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
+  maxDate={'2012-05-30'}
+  // Handler which gets executed on day press. Default = undefined
+  onDayPress={(day) => {console.log('selected day', day)}}
+  // Handler which gets executed on day long press. Default = undefined
+  onDayLongPress={(day) => {console.log('selected day', day)}}
+  // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
+  monthFormat={'yyyy MM'}
+  // Handler which gets executed when visible month changes in calendar. Default = undefined
+  onMonthChange={(month) => {console.log('month changed', month)}}
+  // Hide month navigation arrows. Default = false
+  hideArrows={true}
+  // Replace default arrows with custom ones (direction can be 'left' or 'right')
+  renderArrow={(direction) => (<Arrow />)}
+  // Do not show days of other months in month page. Default = false
+  hideExtraDays={true}
+  // If hideArrows=false and hideExtraDays=false do not switch month when tapping on greyed out
+  // day from another month that is visible in calendar page. Default = false
+  disableMonthChange={true}
+  // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday.
+  firstDay={1}
+  // Hide day names. Default = false
+  hideDayNames={true}
+  // Show week numbers to the left. Default = false
+  showWeekNumbers={true}
+  // Handler which gets executed when press arrow icon left. It receive a callback can go back month
+  onPressArrowLeft={substractMonth => substractMonth()}
+  // Handler which gets executed when press arrow icon left. It receive a callback can go next month
+  onPressArrowRight={addMonth => addMonth()}
+/>
 ```
-http://192.168.0.1:19000
+
+#### Date marking
+
+**!Disclaimer!** Make sure that `markedDates` param is immutable. If you change `markedDates` object content but the reference to it does not change calendar update will not be triggered.
+
+Dot marking
+
+<kbd>
+  <img height=50 src="https://github.com/wix-private/wix-react-native-calendar/blob/master/demo/marking1.png?raw=true">
+</kbd>
+
+```javascript
+<Calendar
+  // Collection of dates that have to be marked. Default = {}
+  markedDates={{
+    '2012-05-16': {selected: true, marked: true, selectedColor: 'blue'},
+    '2012-05-17': {marked: true},
+    '2012-05-18': {marked: true, dotColor: 'red', activeOpacity: 0},
+    '2012-05-19': {disabled: true, disableTouchEvent: true}
+  }}
+/>
 ```
 
-and
+You can customise a dot color for each day independently.
 
+Multi-Dot marking
+
+<kbd>
+ <img height=50 src="https://github.com/wix-private/wix-react-native-calendar/blob/master/demo/marking4.png?raw=true">
+</kbd>
+
+Use markingType = 'multi-dot' if you want to display more than one dot. Both the Calendar and CalendarList control support multiple dots by using 'dots' array in markedDates. The property 'color' is mandatory while 'key' and 'selectedColor' are optional. If key is omitted then the array index is used as key. If selectedColor is omitted then 'color' will be used for selected dates.
+```javascript
+const vacation = {key:'vacation', color: 'red', selectedDotColor: 'blue'};
+const massage = {key:'massage', color: 'blue', selectedDotColor: 'blue'};
+const workout = {key:'workout', color: 'green'};
+
+<Calendar
+  markedDates={{
+    '2017-10-25': {dots: [vacation, massage, workout], selected: true, selectedColor: 'red'},
+    '2017-10-26': {dots: [massage, workout], disabled: true},
+  }},
+  markingType={'multi-dot'}
+/>
 ```
-http://192.168.0.1:19001
+
+
+Period marking
+
+<kbd>
+  <img height=50 src="https://github.com/wix-private/wix-react-native-calendar/blob/master/demo/marking2.png?raw=true">
+</kbd>
+
+<kbd>
+  <img height=50 src="https://github.com/wix-private/wix-react-native-calendar/blob/master/demo/marking3.png?raw=true">
+</kbd>
+
+```javascript
+<Calendar
+  // Collection of dates that have to be colored in a special way. Default = {}
+   markedDates={
+    {'2012-05-20': {textColor: 'green'},
+     '2012-05-22': {startingDay: true, color: 'green'},
+     '2012-05-23': {selected: true, endingDay: true, color: 'green', textColor: 'gray'},
+     '2012-05-04': {disabled: true, startingDay: true, color: 'green', endingDay: true}
+    }}
+  // Date marking style [simple/period/multi-dot/custom]. Default = 'simple'
+  markingType={'period'}
+/>
 ```
 
-If this works, but you're still unable to load your app by scanning the QR code, please open an issue on the [Create React Native App repository](https://github.com/react-community/create-react-native-app) with details about these steps and any other error messages you may have received.
+Custom marking allows you to customize each marker with custom styles.
 
-If you're not able to load the `http` URL in your phone's web browser, try using the tethering/mobile hotspot feature on your phone (beware of data usage, though), connecting your computer to that WiFi network, and restarting the packager. If you are using a VPN you may need to disable it.
+<kbd>
+  <img height=50 src="https://github.com/wix-private/wix-react-native-calendar/blob/master/demo/custom.png?raw=true">
+</kbd>
 
-### iOS Simulator won't open
+```javascript
+<Calendar
+  // Date marking style [simple/period/multi-dot/single]. Default = 'simple'
+  markingType={'custom'}
+  markedDates={{
+    '2018-03-28': {
+      customStyles: {
+        container: {
+          backgroundColor: 'green',
+        },
+        text: {
+          color: 'black',
+          fontWeight: 'bold'
+        },
+      },
+    },
+    '2018-03-29': {
+      customStyles: {
+        container: {
+          backgroundColor: 'white',
+          elevation: 2
+        },
+        text: {
+          color: 'blue',
+        },
+      }
+    }}}
+/>
+```
 
-If you're on a Mac, there are a few errors that users sometimes see when attempting to `npm run ios`:
+Keep in mind that different marking types are not compatible. You can use just one marking style for calendar.
 
-* "non-zero exit code: 107"
-* "You may need to install Xcode" but it is already installed
-* and others
+#### Displaying data loading indicator
 
-There are a few steps you may want to take to troubleshoot these kinds of errors:
+<kbd>
+  <img height=50 src="https://github.com/wix-private/wix-react-native-calendar/blob/master/demo/loader.png?raw=true">
+</kbd>
 
-1. Make sure Xcode is installed and open it to accept the license agreement if it prompts you. You can install it from the Mac App Store.
-2. Open Xcode's Preferences, the Locations tab, and make sure that the `Command Line Tools` menu option is set to something. Sometimes when the CLI tools are first installed by Homebrew this option is left blank, which can prevent Apple utilities from finding the simulator. Make sure to re-run `npm/yarn run ios` after doing so.
-3. If that doesn't work, open the Simulator, and under the app menu select `Reset Contents and Settings...`. After that has finished, quit the Simulator, and re-run `npm/yarn run ios`.
+The loading indicator next to month name will be displayed if `<Calendar />` has `displayLoadingIndicator` property and `markedDays` collection does not have a value for every day of the month in question. When you load data for days, just set `[]` or special marking value to all days in `markedDates` collection.
 
-### QR Code does not scan
+#### Customizing look & feel
 
-If you're not able to scan the QR code, make sure your phone's camera is focusing correctly, and also make sure that the contrast on the two colors in your terminal is high enough. For example, WebStorm's default themes may [not have enough contrast](https://github.com/react-community/create-react-native-app/issues/49) for terminal QR codes to be scannable with the system barcode scanners that the Expo app uses.
+```javascript
+<Calendar
+  // Specify style for calendar container element. Default = {}
+  style={{
+    borderWidth: 1,
+    borderColor: 'gray',
+    height: 350
+  }}
+  // Specify theme properties to override specific styles for calendar parts. Default = {}
+  theme={{
+    backgroundColor: '#ffffff',
+    calendarBackground: '#ffffff',
+    textSectionTitleColor: '#b6c1cd',
+    selectedDayBackgroundColor: '#00adf5',
+    selectedDayTextColor: '#ffffff',
+    todayTextColor: '#00adf5',
+    dayTextColor: '#2d4150',
+    textDisabledColor: '#d9e1e8',
+    dotColor: '#00adf5',
+    selectedDotColor: '#ffffff',
+    arrowColor: 'orange',
+    monthTextColor: 'blue',
+    textDayFontFamily: 'monospace',
+    textMonthFontFamily: 'monospace',
+    textDayHeaderFontFamily: 'monospace',
+    textMonthFontWeight: 'bold',
+    textDayFontSize: 16,
+    textMonthFontSize: 16,
+    textDayHeaderFontSize: 16
+  }}
+/>
+```
 
-If this causes problems for you, you may want to try changing your terminal's color theme to have more contrast, or running Create React Native App from a different terminal. You can also manually enter the URL printed by the packager script in the Expo app's search bar to load it manually.
+#### Advanced styling
+
+If you want to have complete control over calendar styles you can do it by overriding default style.js files. For example, if you want to override calendar header style first you have to find stylesheet id for this file:
+
+https://github.com/wix/react-native-calendars/blob/master/src/calendar/header/style.js#L4
+
+In this case it is 'stylesheet.calendar.header'. Next you can add overriding stylesheet to your theme with this id.
+
+https://github.com/wix/react-native-calendars/blob/master/example/src/screens/calendars.js#L56
+
+```javascript
+theme={{
+  arrowColor: 'white',
+  'stylesheet.calendar.header': {
+    week: {
+      marginTop: 5,
+      flexDirection: 'row',
+      justifyContent: 'space-between'
+    }
+  }
+}}
+```
+
+**Disclaimer**: issues that arise because something breaks after using stylesheet override will not be supported. Use this option at your own risk.
+
+#### Overriding day component
+
+If you need custom functionality not supported by current day component implementations you can pass your own custom day
+component to the calendar.
+
+```javascript
+<Calendar
+  style={[styles.calendar, {height: 300}]}
+  dayComponent={({date, state}) => {
+    return (<View style={{flex: 1}}><Text style={{textAlign: 'center', color: state === 'disabled' ? 'gray' : 'black'}}>{date.day}</Text></View>);
+  }}
+/>
+```
+
+The dayComponent prop has to receive a RN component or function that receive props. The day component will receive such props:
+
+* state - disabled if the day should be disabled (this is decided by base calendar component)
+* marking - markedDates value for this day
+* date - the date object representing this day
+
+**Tip:** Don't forget to implement shouldComponentUpdate for your custom day component to make calendar perform better
+
+If you implement an awesome day component please make a PR so that other people could use it :)
+
+### CalendarList
+
+<kbd>
+  <img src="https://github.com/wix-private/wix-react-native-calendar/blob/master/demo/calendar-list.gif?raw=true">
+</kbd>
+
+`<CalendarList />` is scrollable semi-infinite calendar composed of `<Calendar />` components. Currently it is possible to scroll 4 years back and 4 years to the future. All paramters that are available for `<Calendar />` are also available for this component. There are also some additional params that can be used:
+
+```javascript
+<CalendarList
+  // Callback which gets executed when visible months change in scroll view. Default = undefined
+  onVisibleMonthsChange={(months) => {console.log('now these months are visible', months);}}
+  // Max amount of months allowed to scroll to the past. Default = 50
+  pastScrollRange={50}
+  // Max amount of months allowed to scroll to the future. Default = 50
+  futureScrollRange={50}
+  // Enable or disable scrolling of calendar list
+  scrollEnabled={true}
+  // Enable or disable vertical scroll indicator. Default = false
+  showScrollIndicator={true}
+  ...calendarParams
+/>
+```
+
+#### Horizontal CalendarList
+
+<kbd>
+  <img src="https://github.com/wix-private/wix-react-native-calendar/blob/master/demo/horizontal-calendar-list.gif?raw=true">
+</kbd>
+
+You can also make the `CalendarList` scroll horizontally. To do that you need to pass specific props to the `CalendarList`:
+
+```javascript
+<CalendarList
+  // Enable horizontal scrolling, default = false
+  horizontal={true}
+  // Enable paging on horizontal, default = false
+  pagingEnabled={true}
+  // Set custom calendarWidth.
+  calendarWidth={320}
+  ...calendarListParams
+  ...calendarParams
+/>
+```
+
+### Agenda
+<kbd>
+  <img src="https://github.com/wix-private/wix-react-native-calendar/blob/master/demo/agenda.gif?raw=true">
+</kbd>
+
+An advanced agenda component that can display interactive listings for calendar day items.
+
+```javascript
+<Agenda
+  // the list of items that have to be displayed in agenda. If you want to render item as empty date
+  // the value of date key kas to be an empty array []. If there exists no value for date key it is
+  // considered that the date in question is not yet loaded
+  items={
+    {'2012-05-22': [{text: 'item 1 - any js object'}],
+     '2012-05-23': [{text: 'item 2 - any js object'}],
+     '2012-05-24': [],
+     '2012-05-25': [{text: 'item 3 - any js object'},{text: 'any js object'}],
+    }}
+  // callback that gets called when items for a certain month should be loaded (month became visible)
+  loadItemsForMonth={(month) => {console.log('trigger items loading')}}
+  // callback that fires when the calendar is opened or closed
+  onCalendarToggled={(calendarOpened) => {console.log(calendarOpened)}}
+  // callback that gets called on day press
+  onDayPress={(day)=>{console.log('day pressed')}}
+  // callback that gets called when day changes while scrolling agenda list
+  onDayChange={(day)=>{console.log('day changed')}}
+  // initially selected day
+  selected={'2012-05-16'}
+  // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
+  minDate={'2012-05-10'}
+  // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
+  maxDate={'2012-05-30'}
+  // Max amount of months allowed to scroll to the past. Default = 50
+  pastScrollRange={50}
+  // Max amount of months allowed to scroll to the future. Default = 50
+  futureScrollRange={50}
+  // specify how each item should be rendered in agenda
+  renderItem={(item, firstItemInDay) => {return (<View />);}}
+  // specify how each date should be rendered. day can be undefined if the item is not first in that day.
+  renderDay={(day, item) => {return (<View />);}}
+  // specify how empty date content with no items should be rendered
+  renderEmptyDate={() => {return (<View />);}}
+  // specify how agenda knob should look like
+  renderKnob={() => {return (<View />);}}
+  // specify what should be rendered instead of ActivityIndicator
+  renderEmptyData = {() => {return (<View />);}}
+  // specify your item comparison function for increased performance
+  rowHasChanged={(r1, r2) => {return r1.text !== r2.text}}
+  // Hide knob button. Default = false
+  hideKnob={true}
+  // By default, agenda dates are marked if they have at least one item, but you can override this if needed
+  markedDates={{
+    '2012-05-16': {selected: true, marked: true},
+    '2012-05-17': {marked: true},
+    '2012-05-18': {disabled: true}
+  }}
+  // agenda theme
+  theme={{
+    ...calendarTheme,
+    agendaDayTextColor: 'yellow',
+    agendaDayNumColor: 'green',
+    agendaTodayColor: 'red',
+    agendaKnobColor: 'blue'
+  }}
+  // agenda container style
+  style={{}}
+/>
+```
+
+## Authors
+
+* [Tautvilas Mecinskas](https://github.com/tautvilas/) - Initial code - [@tautvilas](https://twitter.com/TautviIas)
+* Katrin Zotchev - Initial design - [@katrin_zot](https://twitter.com/katrin_zot)
+
+See also the list of [contributors](https://github.com/wix/react-native-calendar-components/contributors) who participated in this project.
+
+## Contributing
+
+Pull requests are welcome. `npm run test` and `npm run lint` before push.
